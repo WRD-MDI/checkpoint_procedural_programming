@@ -1,0 +1,45 @@
+PROCEDURE dot_product(v1 : ARRAY_OF FLOAT, v2 : ARRAY_OF FLOAT, VAR ps : FLOAT )
+VAR 
+    i,j :FLOAT;
+BEGIN
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        FOR j FROM 0 TO v2.length-1 STEP 1  DO
+            ps := ps + v1 [i] * v2[j];      
+        END_FOR
+    END_FOR
+END
+
+ALGORITHM check_ortho
+VAR
+    vx,vy: ARRAY_OF FLOAT
+BEGIN
+    IF (dot_product(vx,vy)==0) THEN
+        write("two vectors are orthogonal")
+        ELSE
+        write("vector are not orthogonal")
+
+    END_IF
+END
+
+// function
+FUNCTION dot_product(v1,v2: ARRAY_OF FLOAT) : FLOAT
+VAR
+    i,j : INTEGER;
+    ps : FLOAT;
+BEGIN
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        FOR j FROM 0 TO v2.length-1 STEP 1  DO
+            ps := ps + v1 [i] * v2[j]; 
+    RETURN ps ;
+END
+
+
+ALGORITHM check_ortho
+VAR 
+    vx,vy: ARRAY_OF FLOAT
+BEGIN
+    IF (dot_product(vx,vy)==0) THEN
+        write("two vectors are orthogonal")
+        ELSE
+        write("vector are not orthogonal")
+END
